@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume · View & Download</title>
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Resume · View & Download</title>
+        <!-- Font Awesome 6 (free) for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+
+          body {
+            background: #f4f7fc;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+          }
+
+          /* main card */
+          .resume-card {
+            max-width: 1100px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transition: all 0.2s ease;
+          }
+
+          /* header with actions */
+          .resume-header {
+            padding: 1.8rem 2.5rem;
+            background: #ffffff;
+            border-bottom: 1px solid #eef2f6;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem 1.5rem;
+          }
+
+          .resume-header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0b1e33;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          }
+
+          .resume-header h1 i {
+            color: #2a6df4;
+            font-size: 1.6rem;
+          }
+
+          .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+          }
+
+          .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 1rem;
+            border: none;
+            background: #f0f4fe;
+            color: #1a3b6b;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            box-shadow: 0 2px 6px rgba(0, 20, 50, 0.04);
+          }
+
+          .btn i {
+            font-size: 1.1rem;
+          }
+
+          .btn-primary {
+            background: #1a3b6b;
+            color: white;
+            box-shadow: 0 8px 18px -6px rgba(26, 59, 107, 0.3);
+          }
+
+          .btn-primary:hover {
+            background: #0f2b4f;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -8px rgba(26, 59, 107, 0.4);
+          }
+
+          .btn-outline {
+            background: transparent;
+            border: 1px solid #d0d9e8;
+            color: #1f3a5f;
+          }
+
+          .btn-outline:hover {
+            background: #e9eff9;
+            border-color: #a0b8d6;
+            transform: translateY(-2px);
+          }
+
+          /* resume content (view) */
+          .resume-body {
+            padding: 2.5rem 2.5rem 2.8rem;
+            background: #ffffff;
+          }
+
+          /* the "view" area – like a clean document preview */
+          .resume-preview {
+            background: #fafcff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            border: 1px solid #e9eff6;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
+          }
+
+          .resume-preview h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0b1e33;
+            margin-bottom: 0.1rem;
+          }
+
+          .resume-preview .title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #2a6df4;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e6edf8;
+            padding-bottom: 0.8rem;
+          }
+
+          .resume-preview .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem 2.5rem;
+            font-size: 0.95rem;
+            color: #1f3a5f;
+            margin-bottom: 2rem;
+            background: #f2f7ff;
+            padding: 0.9rem 1.2rem;
+            border-radius: 60px;
+          }
+
+          .resume-preview .contact-row i {
+            width: 1.4rem;
+            color: #2a6df4;
+          }
+
+          .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem 2.5rem;
+          }
+
+          @media (max-width: 700px) {
+            .resume-grid {
+              grid-template-columns: 1fr;
+              gap: 1.2rem;
+            }
+            .resume-header {
+              flex-direction: column;
+              align-items: stretch;
+              text-align: center;
+            }
+            .action-buttons {
+              justify-content: center;
+            }
+            .resume-preview .contact-row {
+              border-radius: 20px;
+              justify-content: center;
+            }
+          }
+
+          .resume-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0b1e33;
+            letter-spacing: -0.01em;
+            border-bottom: 2px solid #dce6f2;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          }
+
+          .resume-section h3 i {
+            color: #2a6df4;
+            font-size: 1rem;
+            width: 1.6rem;
+          }
+
+          .resume-section ul {
+            list-style: none;
+            padding: 0;
+          }
+
+          .resume-section li {
+            margin-bottom: 0.7rem;
+            line-height: 1.5;
+            color: #1f344d;
+          }
+
+          .resume-section li strong {
+            color: #0b1e33;
+            font-weight: 600;
+          }
+
+          .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.8rem;
+            margin-top: 0.3rem;
+          }
+
+          .skill-tag {
+            background: #eaf1fd;
+            color: #1a3b6b;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            border: 1px solid #d4e2f7;
+          }
+
+          .job-item {
+            margin-bottom: 1.4rem;
+          }
+
+          .job-item .job-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            font-weight: 600;
+            color: #0b1e33;
+          }
+
+          .job-item .company {
+            font-weight: 400;
+            color: #2a4c7a;
+          }
+
+          .job-item .date {
+            font-weight: 400;
+            color: #5b7293;
+            font-size: 0.9rem;
+          }
+
+          .job-item p {
+            margin-top: 0.3rem;
+            color: #1f344d;
+            line-height: 1.5;
+            font-size: 0.95rem;
+          }
+
+          .badge-download {
+            background: #e7f0ff;
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.8rem;
+            color: #1a3b6b;
+            font-weight: 500;
+            display: inline-block;
+          }
+
+          /* responsive fine-tune */
+          @media (max-width: 480px) {
+            .resume-body {
+              padding: 1.5rem;
+            }
+            .resume-preview {
+              padding: 1.2rem;
+            }
+            .resume-preview h2 {
+              font-size: 1.8rem;
+            }
+          }
+        </style>
+        <!-- html2pdf (bundled html2canvas + jsPDF) for client-side PDF export -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+      </head>
+      <body>
+        <div class="resume-card" id="resumeApp">
+          <!-- header with actions -->
+          <div class="resume-header">
+            <h1>
+              <i class="fas fa-file-user"></i> 
+              Resume
+            </h1>
+            <div class="action-buttons">
+              <!-- View button (scrolls to preview, but it's always visible) -->
+              <button class="btn btn-outline" id="viewBtn" title="Scroll to resume preview">
+                <i class="fas fa-eye"></i> View
+              </button>
+              <!-- Download button (triggers download of this very page as .html, but also shows a "resume" version) -->
+              <a class="btn btn-primary" id="downloadBtn" download="My_Resume.html" title="Download resume as HTML">
+                <i class="fas fa-download"></i> Download
+              </a>
+            </div>
+          </div>
+
+          <!-- resume content (view) -->
+          <div class="resume-body" id="resumeView">
+            <div class="resume-preview">
+              <!-- ========== RESUME CONTENT ========== -->
+              <h2>Mithali S</h2>
+             
+
+              <div class="contact-row">
+                <span><i class="fas fa-envelope"></i> mithalireddys@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +91 8660957758</span>
+                <span><i class="fas fa-map-pin"></i> Karnataka, India</span>
+                <span><i class="fab fa-linkedin"></i> linkedin.com/in/mithalireddy3005</span>
+              </div>
+
+              <div class="resume-grid">
+                <!-- left column -->
+                <div>
+                  <div class="resume-section">
+                    <h3><i class="fas fa-user-graduate"></i> Education</h3>
+                    <ul>
+                      <li><strong>B.E. Computer Science Engineering (ICB)</strong><br />Alva's Institute of Engineering and Technology<br>CGPA: 7.72 (2023 - Present)</li>
+                      <li style="margin-top: 0.8rem;"><strong>PUC</strong><br />Alva's PU College<br>Percentage: 60%</li>
+                      <li style="margin-top: 0.8rem;"><strong>SSLC</strong><br />Kor-In School, Kolar<br>Percentage: 96%</li>
+                    </ul>
+                  </div>
+
+                  <div class="resume-section" style="margin-top: 1.8rem;">
+                    <h3><i class="fas fa-code"></i> Skills</h3>
+                    <div class="skill-tags">
+                      <span class="skill-tag">Python</span>
+                      <span class="skill-tag">Java</span>
+                      <span class="skill-tag">C</span>
+                      <span class="skill-tag">HTML</span>
+                      <span class="skill-tag">CSS</span>
+                      <span class="skill-tag">JavaScript</span>
+                      <span class="skill-tag">GitHub</span>
+                      <span class="skill-tag">Problem Solving</span>
+                      <span class="skill-tag">Communication</span>
+                      <span class="skill-tag">Time Management</span>
+                    </div>
+                  </div>
+
+                  <div class="resume-section" style="margin-top: 1.8rem;">
+                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                    <ul>
+                      <li>IBM Applied DevOps Engineering - Coursera</li>
+                      <li>Python Foundation - Infosys Springboard</li>
+                      <li>Introduction to Internet of Things - NPTEL</li>
+                      <li>Introduction to Software Engineering - Coursera</li>
+                      <li>The Joy of Computing using Python - NPTEL</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- right column: projects & achievements (no Experience) -->
+                <div>
+                  <div class="resume-section">
+                    <h3><i class="fas fa-pen-fancy"></i> Projects</h3>
+                    <ul>
+                      <li><strong>Weather App with Rating System</strong><br>Developed a responsive weather application using HTML, CSS, JavaScript and OpenWeather API. Implemented user rating and feedback features with responsive UI.</li>
+                      <li style="margin-top:12px;"><strong>IoT-Based Temperature Monitor</strong><br>Developed a Python-based IoT temperature monitoring application for real-time data collection, logging and visualization.</li>
+                    </ul>
+                  </div>
+
+                  <div class="resume-section" style="margin-top: 1.5rem;">
+                    <h3><i class="fas fa-trophy"></i> Achievements</h3>
+                    <ul>
+                      <li><strong>Technovate 2025</strong><br>2nd Runner-Up among 180+ teams and 400+ participants.</li>
+                      <li style="margin-top:12px;"><strong>Hackathon Winner</strong><br>Developed an AI-powered Mental Health Chatbot.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- tiny footer note (just for style) -->
+              <div style="margin-top: 2rem; font-size: 0.75rem; color: #8196b7; border-top: 1px solid #e6edf8; padding-top: 1rem; display: flex; justify-content: space-between; flex-wrap: wrap;">
+                <span><i class="fas fa-print"></i>  ·  Updated July 2026</span>
+                <span><i class="fas fa-check-circle" style="color: #2a6df4;"></i>  Open to Software Engineer Opportunities</span>
+              </div>
+              <!-- ========== END RESUME CONTENT ========== -->
+            </div>
+          </div>
+        </div>
+
+        <script>
+          (function() {
+            "use strict";
+
+            // 1. VIEW button: smoothly scroll to the resume preview
+            const viewBtn = document.getElementById('viewBtn');
+            const resumeView = document.getElementById('resumeView');
+
+            if (viewBtn && resumeView) {
+              viewBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                resumeView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              });
+            }
+
+            // 2. DOWNLOAD button: generate a PDF from the preview using html2pdf.
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            downloadBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              const previewElement = document.querySelector('.resume-preview');
+              if (!previewElement) return;
+
+              // Temporarily toggle any UI we don't want in the PDF (hide header buttons)
+              const header = document.querySelector('.resume-header');
+              const originalHeaderDisplay = header ? header.style.display : null;
+              if (header) header.style.display = 'none';
+
+              // PDF options
+              const opt = {
+                margin:       0.4,
+                filename:     'Mithali_S_Resume.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+              };
+
+              // Use html2pdf to save the preview as PDF
+              html2pdf().set(opt).from(previewElement).save().then(() => {
+                // restore header display after save
+                if (header) header.style.display = originalHeaderDisplay;
+              }).catch((err) => {
+                if (header) header.style.display = originalHeaderDisplay;
+                console.error('PDF generation failed', err);
+                alert('Could not generate PDF in this browser. Try a different browser.');
+              });
+            });
+
+          })();
+        </script>
+
+      </body>
+      </html>
